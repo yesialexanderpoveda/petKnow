@@ -1,13 +1,18 @@
 <header>
   <nav>
-  <ul>
-    <li><b>PetKnow</b></li>
-    <li>mascotas</li>
-    <li>quienes somos</li>
-    <li>{{+0}}</li>
-  </ul>
-  <div>
-   Menu
+    <ul>
+      <li><b>PetKnow</b></li>
+      <li>mascotas</li>
+      <li>quienes somos</li>
+      <li>{{+0}}</li>
+    </ul>
+  </nav>
+  <div class="menu-trigger" (click)="isOpen = !isOpen">
+    <div [ngClass]="isOpen ? 'gg-chevron-up' : 'gg-chevron-down'" ></div>
   </div>
-</nav>
+  <div class="menu" *ngIf="isOpen" [@dropDownMenu]>
+    <div class="menu-item" >
+      <a></a>
+    </div>
+  </div>
 </header>

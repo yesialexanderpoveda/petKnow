@@ -14,6 +14,10 @@ const routes: Routes = [
 
   }, 
   {
+    path: 'pets'
+
+  },
+  {
     path: '**',
     redirectTo: 'home'
   }
