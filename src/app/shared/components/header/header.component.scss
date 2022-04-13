@@ -1,113 +1,113 @@
-header{
+@mixin desktop {
+  @media only screen and (min-width: 620px) {
+    @content;
+  }
+}
+
+header {
   width: 99%;
   height: 100%;
-   margin-top: 10px;
-   display: flex;
-   justify-content: space-between;
-  
-  nav{
+  margin-top: 10px;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
-  margin: none;
-  
-   ul{ 
+
+  nav {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 0px;
-    margin-left: 5px;
-    box-sizing: border-box;
-   
-    
-    li{
-     
-      margin-left: 0px;
-      margin-right: 15px;
-      list-style: none;
-    text-decoration: none;
-    font-size: 1.3em;
-    
-   
-    
-    }
-    li:nth-child(0n+1) {
-      color: #666666;
-      font-size: 1.35em;
-      //margin-right: 50px;
-    }
-   li:nth-child(3n) {
-    
-    display: none;
-    
-  }
-  li:nth-child(4n) {
-   height: max-content;
-    border: 1px solid #777777;
-   border-radius: 12px;
-   box-sizing: border-box;
+    margin: none;
 
-  }
-   }
+    ul {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 0px;
+      margin-left: 5px;
+      box-sizing: border-box;
+      @include desktop {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      li {
+        margin-left: 0px;
+        margin-right: 15px;
+        list-style: none;
+        text-decoration: none;
+        font-size: 1.3em;
+      }
+      li:nth-child(0n + 1) {
+        color: #666666;
+        font-size: 1.35em;
+
+        @include desktop {
+          margin-right: 70px;
+        }
+      }
+
+      li:nth-child(3n) {
+        display: none;
+        @include desktop {
+          display: block;
+        }
+      }
+      li:nth-child(4n) {
+        height: max-content;
+        box-sizing: border-box;
+      }
+    }
   }
 
-  .menu-trigger{
+  .menu-trigger {
     cursor: pointer;
-   
-  
-   
-  
-    .gg-chevron-down{
-    
+
+    .gg-chevron-down {
       writing-mode: vertical-lr;
-     
-    &::before{
-      content: 'III';
-      position: absolute;
-      right: 10px;
-      top: 10px;
-      z-index: 2;
-      color: red;
-    
-      
-      
-    
+
+      &::before {
+        content: "III";
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        z-index: 2;
+        color: #777777;
+        font-size: 25px;
+      }
     }
 
+    .gg-chevron-up {
+      &::before {
+        content: "X";
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        z-index: 2;
+        color: #ff5733;
+        font-size: 25px;
+      }
+    }
   }
 
-  .gg-chevron-up{
-    
-   
-     
-    &::before{
-      content: 'X';
-      position: absolute;
-      right: 10px;
-      top: 10px;
-      z-index: 2;
-      color: red;
-    
-      
-    }
-    
-    }
-}
-  
-  .menu{
-
+  .menu {
     height: 100%;
     width: 100%;
     position: absolute;
     top: 0px;
     background-color: black;
-    color: white;   
+    color: white;
     z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
+
+    .list{
+      text-decoration: none;
+      list-style: none;
+      font-size: larger;
+      margin-bottom: 20px;
+    }
   }
-  
 }
 

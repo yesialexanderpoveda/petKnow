@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuAnimation } from './animatios';
+import { MenuAnimation} from './animatios';
 
 
 
@@ -15,7 +15,8 @@ export class HeaderComponent implements OnInit {
     isOpen = false;
 
     toggle(){
-      this.isOpen = !this.isOpen
+      this.isOpen = !this.isOpen;
+      
     }
   constructor() { }
 

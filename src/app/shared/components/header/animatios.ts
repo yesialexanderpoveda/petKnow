@@ -3,19 +3,21 @@ import {
   query,
   sequence,
   stagger,
+  state,
   style,
   transition,
   trigger
 } from "@angular/animations";
 
 export const MenuAnimation = trigger("dropDownMenu", [
+  
   transition(":enter", [
-    style({ height: 0, overflow: "hidden" }),
+    style({ height: 0, overflow: "hidden"}),
     query(".menu-item", [
-      style({ opacity: 0, transform: "translateY(-50px)" })
+      style({ opacity: 0, transform: "translateY(-50px)"})
     ]),
     sequence([
-      animate("200ms", style({ height: "*" })),
+      animate("200ms", style({ height: "*"})),
       query(".menu-item", [
         stagger(-50, [
           animate("400ms ease", style({ opacity: 1, transform: "none" }))
@@ -25,7 +27,7 @@ export const MenuAnimation = trigger("dropDownMenu", [
   ]),
 
   transition(":leave", [
-    style({ height: "*", overflow: "hidden" }),
+    style({ height: "*", overflow: "hidden"}),
     query(".menu-item", [style({ opacity: 1, transform: "none" })]),
     sequence([
       query(".menu-item", [
@@ -40,3 +42,7 @@ export const MenuAnimation = trigger("dropDownMenu", [
     ])
   ])
 ]);
+
+
+
+

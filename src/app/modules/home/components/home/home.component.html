@@ -1,5 +1,67 @@
 <div class="container">
 
-<p>jajaji</p>
 
-</div>
+ <p class="paragraph">
+   
+  Las mascotas son el reflejo de las personas, son el reflejo de la supervivencia y de la adaptación 
+  de la naturaleza, trasmiten,  además de confianza y amor, actitudes parecidas a nosotros, según haya sido su 
+  crianza. Cuida a tus animales  con amor y respeto.
+    
+ </p>
+
+  <button type="button" (click)="toogle()"> </button>
+
+
+  <div [@openClosed]="isOpen ? 'open': 'closed'" class="pets">
+
+    <div class="dog">
+      <div class="earsDogLeft"></div>
+      <div class="earsDogRight"></div>
+      <div class="eyeBrowRight"></div>
+      <div class="eyeBrowLeft"></div>
+      <div class="ayesDogRight">
+        <div class="pupiRight">
+
+          <div class="retinaRightDog"></div>
+        </div>
+      </div>
+      <div class="ayesDogLeft">
+
+        <div class="pupiLeft">
+
+          <div class="retinaLeftDog"></div>
+
+        </div>
+      </div>
+
+      <div class="beard">
+        <div class="noseDog"></div>
+        <div class="mouthDog"></div>
+      </div>
+
+    </div>
+
+
+    <div class="cat">
+      <div class="earsCatLeft"></div>
+      <div class="earsCatRight"></div>
+
+      <div class="ayesCatLeft">
+        <div class="pupiLeftCat">
+
+          <div class="retinaLefCat"></div>
+        </div>
+      </div>
+
+      <div class="ayesCatRight">
+        <div class="pupiRightCat">
+          <div class="retinaRightCat"></div>
+        </div>
+      </div>
+      <div class="noseCat"></div>
+      <div class="moustacheRight"></div>
+      <div class="moustacheLeft"></div>
+      <div class="mouthCat"></div>
+    </div>
+
+  </div>
