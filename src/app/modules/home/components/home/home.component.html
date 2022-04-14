@@ -1,24 +1,21 @@
 <div class="container">
 
 
- <p class="paragraph">
-   
-  Las mascotas son el reflejo de las personas, son el reflejo de la supervivencia y de la adaptación 
-  de la naturaleza, trasmiten,  además de confianza y amor, actitudes parecidas a nosotros, según haya sido su 
-  crianza. Cuida a tus animales  con amor y respeto.
-    
- </p>
+  <p class="paragraph">
 
-  <button type="button" (click)="toogle()"> </button>
+    Las mascotas son el reflejo de las personas, son el reflejo de la supervivencia y de la adaptación
+    de la naturaleza, trasmiten, además de confianza y amor, actitudes parecidas a nosotros, según haya sido su
+    crianza. Cuida a tus animales con amor y respeto.
+  
+  </p>
 
+  <div class="pets">
 
-  <div [@openClosed]="isOpen ? 'open': 'closed'" class="pets">
-
-    <div class="dog">
+    <div class="dog" [@animationDog] (@animationDog.start)="displayEvent('start')" (@animationDog.done)="displayEvent('done')">
       <div class="earsDogLeft"></div>
       <div class="earsDogRight"></div>
-      <div class="eyeBrowRight"></div>
-      <div class="eyeBrowLeft"></div>
+      <div class="eyeBrowRight" [@animationAyeBrowRight] (@animationAyeBrowRight.start)="displayEvent('start')" (@animationAyeBrowRight.done)="displayEvent('done')" ></div>
+      <div class="eyeBrowLeft"  [@animationAyeBrowLeft] (@animationAyeBrowLeft.start)="displayEvent('start')" (@animationAyeBrowLeft.done)="displayEvent('done')" ></div>
       <div class="ayesDogRight">
         <div class="pupiRight">
 
@@ -42,7 +39,7 @@
     </div>
 
 
-    <div class="cat">
+    <div class="cat" [@animationCat] (@animationCat.start)="displayEvent('start')" (@animationCat.done)="displayEvent('done')">
       <div class="earsCatLeft"></div>
       <div class="earsCatRight"></div>
 
