@@ -14,8 +14,22 @@ const routes: Routes = [
 
   }, 
   {
-    path: 'pets'
+    path: 'about',
+    loadChildren: () => import('../modules/about/about.module').then(m => m.AboutModule)
 
+  },
+  {
+    path: 'pets',
+    loadChildren: () => import('../modules/shoppingpet/shoppingpet.module').then(m=> m.ShoppingpetModule)
+  },
+  {
+    path: 'cart',
+    loadChildren: () => import('../modules/cart/cart.module').then(m => m.CartModule) 
+    
+  },
+  {
+    path: 'order',
+    loadChildren: ()=> import('../modules/order/order.module').then(m => m.OrderModule) 
   },
   {
     path: '**',
