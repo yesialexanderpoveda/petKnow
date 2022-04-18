@@ -3,7 +3,6 @@ import { MenuAnimation} from './animatios';
 
 
 
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',

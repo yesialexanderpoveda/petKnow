@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialPetModule } from '../modules/material/material.module';
-
+import { RouterModule } from '@angular/router';
 
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+
 
 
 @NgModule({
@@ -19,7 +20,9 @@ import { HeaderComponent } from './components/header/header.component';
   ],
   imports: [
     CommonModule,
+    RouterModule,
     MaterialPetModule
+
   ]
 })
 export class SharedModule { }

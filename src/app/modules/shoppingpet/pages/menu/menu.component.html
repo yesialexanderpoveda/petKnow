@@ -1,0 +1,23 @@
+
+
+<div class="container">
+
+ 
+  <div class="search">
+
+<label for="pets">Tipo de mascota: </label>
+<select [(ngModel)]="navC.route">
+
+  <option *ngFor="let pet of pets" value="{{pet.route}}"> {{pet.name}} </option>
+</select>
+<button routerLink="{{navC.route}}" *ngIf="navC.route !== ''">
+<mat-icon aria-hidden="false" aria-label="Example home icon">search</mat-icon>
+</button>
+</div>
+
+
+
+
+<router-outlet></router-outlet>
+
+</div>

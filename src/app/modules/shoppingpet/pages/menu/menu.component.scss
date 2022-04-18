@@ -1,0 +1,48 @@
+@mixin desktop {
+  @media only screen and (max-width: 620px) {
+    @content;
+  }
+}
+.container {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .search {
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    align-items: center;
+
+    select {
+      width: 60%;
+      text-decoration: none;
+      background: none;
+      border: none;
+      border-bottom: 1px solid #777777;
+
+      option {
+        &:hover {
+          background-color: #ff5733;
+        }
+      }
+    }
+    button {
+      background: none;
+      border: none;
+    
+      mat-icon {
+        width: 20%;
+        position: relative;
+        left: 5px;
+
+        @include desktop() {
+          left: 0px;
+          width: 25%;
+        }
+      }
+    }
+  }
+}

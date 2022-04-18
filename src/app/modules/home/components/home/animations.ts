@@ -99,11 +99,6 @@ export const animationDog = trigger("animationDog", [
 
 export const animationCat = trigger("animationCat", [
 
-  transition('* => void', [
-    query('.cat', stagger('80ms', [
-        animate('400ms cubic-bezier(0.6, 0, 0.5, 1)', style({opacity: 0, transform: 'translateY(20px)'}))
-    ]))
-]),
 
   transition('void => *', [
 
