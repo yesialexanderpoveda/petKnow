@@ -7,7 +7,7 @@
 header {
   width: 99%;
   height: 100%;
-  margin-top: 10px;
+  margin-top: 15px;
   display: flex;
   justify-content: space-between;
 
@@ -39,8 +39,10 @@ header {
       }
       li:nth-child(0n + 1) {
         color: #666666;
-        font-size: 1.35em;
-
+        font-size: 1.4em;
+        -webkit-font-family: cursive;
+        font-family: cursive;
+        
         @include desktop {
           margin-right: 70px;
         }

@@ -1,0 +1,51 @@
+@mixin imgs {
+  @media only screen and (max-width: 920px){
+    @content    
+  }
+}
+
+.contAll{
+ width: 95%;
+ margin: 0 5%;
+
+  .cont{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  
+   @include imgs(){
+    display: flex;
+    justify-content: center;
+     flex-wrap: wrap;
+
+  }
+  
+  .contL{
+    margin-left: 15px;
+    text-align: center;
+    margin-bottom: 10px;
+  
+img{
+
+  
+  width: 290px;
+  height: 280px;
+  border-radius: 5px;
+  
+  
+
+}
+
+
+  }
+}
+
+.btn{
+  margin-top: 10px;
+  text-align: center;
+  button{
+    margin-left: 5px;
+  }
+}
+}

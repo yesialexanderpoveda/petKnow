@@ -7,15 +7,24 @@ import { CatsService} from '../../services/cats.service';
 })
 export class CatsComponent implements OnInit {
 
+  cats: string[] = [];
   message!: string;
   constructor(private catService: CatsService) { }
 
+  ngOnInit(): void {
+    this.getFunny();
+   }
 
   getFunny(){
    
-    this.catService.getFunny().subscribe((data) => {
-      console.log(data)
+    this.catService.getFunny().subscribe((data: any) => {
+        data.map((dta: any)=>{
+          let Cats = Object.values(dta.url).join('');
+           this.cats.push(Cats)
+        })
     })
+    
+   console.log(this.cats)
     
   }
 
@@ -25,8 +34,6 @@ export class CatsComponent implements OnInit {
   })
 }
 
-  ngOnInit(): void {
-   this.getFunny();
-  }
+
 
 }

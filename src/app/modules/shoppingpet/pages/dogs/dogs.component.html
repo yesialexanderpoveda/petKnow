@@ -1,2 +1,9 @@
 <app-submenu></app-submenu>
-
+<div class="dogs">
+  <div *ngFor="let dog of pagination">
+    <img src={{dog}} alt="">
+    <div>
+      <button>Llevar</button>
+    </div>
+  </div>
+</div>

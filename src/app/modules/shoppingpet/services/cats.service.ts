@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class CatsService {
 
 
- BaseApiCats = "https://api.thecatapi.com/v1/images/search?limit=10&order=Desc&page=1&category_ids=";
+ BaseApiCats = "https://api.thecatapi.com/v1/images/search?limit=3&order=Desc&page=1&category_ids=";
 
  /*
  
