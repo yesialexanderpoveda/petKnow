@@ -19,9 +19,20 @@ const routes: Routes = [
   component: CatsComponent
 },
 {
+ path: 'cats/:id',
+ component: CatsComponent
+
+},
+{
   path: 'dogs',
   component: DogsComponent
+},
+{
+  path: 'dogs/id',
+  component: DogsComponent
+  
 }
+
 ]}
 
 

@@ -10,14 +10,23 @@ export class CatsComponent implements OnInit {
   message!: string;
   constructor(private catService: CatsService) { }
 
-  
-  getService(): void {
 
-    this.message = this.catService.urlApiCats;
-    console.log(this.message)
+  getFunny(){
+   
+    this.catService.getFunny().subscribe((data) => {
+      console.log(data)
+    })
+    
   }
 
+  getCategories(categories: any){
+  this.catService.getCategory(categories).subscribe((data) => {
+    console.log(data)
+  })
+}
+
   ngOnInit(): void {
+   this.getFunny();
   }
 
 }
