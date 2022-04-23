@@ -1,10 +1,9 @@
 <div class="form">
-  <h3>Elije tu mascota</h3>
-<form action="">
+  <h4> <strong>Filtros:</strong></h4>
+<form action="" >
   
-  <p><label><input type="checkbox" name="myorde18"><strong>con ropa</strong> </label></p>
-  <p><label><input type="checkbox" name="myorde18"><strong>en cajas</strong>  </label></p>
-  <p><label><input type="checkbox" name="myorde18"><strong>con sombreros </strong> </label></p>
+  <p *ngFor="let title of titlesCats"><label><input type="checkbox"><strong>{{title}}</strong> </label></p>
+
 
 </form>
 

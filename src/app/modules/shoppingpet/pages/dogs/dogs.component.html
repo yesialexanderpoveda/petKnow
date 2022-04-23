@@ -1,9 +1,19 @@
-<app-submenu></app-submenu>
-<div class="dogs">
-  <div *ngFor="let dog of pagination">
-    <img src={{dog}} alt="">
-    <div>
-      <button>Llevar</button>
+<div class="contAll">
+  <app-submenu></app-submenu>
+  <div class="dogs">
+    <div *ngFor="let dog of pagination">
+      <img src={{dog}} alt="">
+      <div>
+        <button>Llevar</button>
+      </div>
     </div>
+  </div>
+  <div class="btn">
+    <button>
+      <mat-icon aria-hidden="false" aria-label="search icon">first_page</mat-icon>
+    </button>
+    <button>
+      <mat-icon aria-hidden="false" aria-label="search icon">last_page</mat-icon>
+    </button>
   </div>
 </div>

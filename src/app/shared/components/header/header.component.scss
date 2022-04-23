@@ -3,19 +3,23 @@
     @content;
   }
 }
-
+.bg{
+  -webkit-box-shadow: 0px 3px 0px 0px rgba(0,0,0,0.09); 
+  box-shadow: 0px 3px 0px 0px rgba(0,0,0,0.09);
 header {
   width: 99%;
   height: 100%;
   margin-top: 15px;
   display: flex;
   justify-content: space-between;
+ 
 
   nav {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     margin: none;
+   
 
     ul {
       display: flex;
@@ -113,3 +117,4 @@ header {
   }
 }
 
+}

@@ -1,16 +1,27 @@
 .form{
  width: 100%;
+ h4{
+   
+  margin-left: 15px;
+}
   form{
  display: flex;
- justify-content: space-between;
+ justify-content: flex-start;
  flex-wrap: wrap;
-
+ 
 p{
-  padding-left: 5px;
-  strong{
+  padding-left: 15px;
+  
+
+    strong{
     padding-left: 3px;
   }
-}
+  
 
 }
 }
+
+}
+
+
+

@@ -7,27 +7,37 @@ import { DogsService } from '../../services/dogs.service';
 })
 export class DogsComponent implements OnInit {
 
-   dogs: string[]=[]; 
+
+   filter!: string; 
+  
+   dogs: string[]=[];
+
    pagination: string[]=[];
+
   constructor(private _dogservice: DogsService) { }
 
-  ngOnInit(): void {
-  this.getDogs()
+  ngOnInit(): void { 
+    this.getDogs()
   }
 
   getDogs(){
-   this._dogservice.getBase().subscribe((data: any)=>{
 
-      data.message.map((dta: any)=>{
-        
-        this.dogs.push(dta)
-        
-      })
-      console.log(this.dogs.slice(0,3))
-      this.pagination =  this.dogs.slice(0,3)
-      })
+   if(this.filter == undefined){
+     this.filter = "ibizan"
+   }
+   
+   this._dogservice.getBase(this.filter).subscribe((data: any)=>{
+
+    data.message.map((dta: any)=>{
+      
+      this.dogs.push(dta)
+      
+    })
+    console.log(this.dogs.slice(0,3))
+    this.pagination =  this.dogs.slice(0,3)
+    })
+
      
-    
   }
 
 }

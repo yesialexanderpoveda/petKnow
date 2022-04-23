@@ -21,7 +21,8 @@
 
   .paragraph{
     width: 90%;
-
+    -webkit-box-shadow: 0px 4px 1px 0px rgba(0,0,0,0.09); 
+     box-shadow: 0px 4px 1px 0px rgba(0,0,0,0.09);
     
   }
   .pets {
@@ -35,6 +36,7 @@
 
   .dog,
   .cat {
+    
     width: 290px;
     height: 330px;
     clip-path: polygon(
@@ -50,10 +52,13 @@
       26% 19%
     );
     margin: 10px;
+   
   }
 
   .dog {
     background-color: #ff5733;
+    -webkit-box-shadow: 0px 6px 7px 2px rgba(0,0,0,0.4); 
+    box-shadow: 0px 6px 7px 2px rgba(0,0,0,0.4);
 
     .earsDogLeft {
       background-color: #ffc300;

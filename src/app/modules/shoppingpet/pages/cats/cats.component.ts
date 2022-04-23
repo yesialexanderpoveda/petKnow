@@ -7,31 +7,27 @@ import { CatsService} from '../../services/cats.service';
 })
 export class CatsComponent implements OnInit {
 
+  titles = ["Ropa","Cajas","Corbata"]
+
   cats: string[] = [];
   message!: string;
   constructor(private catService: CatsService) { }
 
   ngOnInit(): void {
-    this.getFunny();
+    this.getCategories()
    }
 
-  getFunny(){
-   
-    this.catService.getFunny().subscribe((data: any) => {
-        data.map((dta: any)=>{
-          let Cats = Object.values(dta.url).join('');
-           this.cats.push(Cats)
-        })
-    })
-    
-   console.log(this.cats)
-    
-  }
 
-  getCategories(categories: any){
-  this.catService.getCategory(categories).subscribe((data) => {
-    console.log(data)
-  })
+  getCategories(){
+
+    
+   this.catService.getCategory('3','3').subscribe((filter: any) =>{
+     Object.values(filter).map((val: any)=>{
+         this.cats.push(val.url)
+        
+        })
+      
+   })  
 }
 
 
