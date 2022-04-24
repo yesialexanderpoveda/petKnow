@@ -1,8 +1,7 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Cats, CategoryCat } from '../models/models.interface';
-import { Observable } from 'rxjs';
+import { Cats } from '../models/models.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +11,17 @@ export class CatsService {
 
  BaseApiCats = "https://api.thecatapi.com/v1/images/search?limit=3&order=Desc&page=";
 
+ filters = [
+
+  {id: 3, name: "Feliz"}, 
+  {id: 15, name: "Ropa" },
+  {id: 5, name: "Boxes"},
+  {id: 7, name: "Ties"}
+  
  
- 
-  constructor(private http: HttpClient ) {}
+]
+  constructor
+  ( private http: HttpClient) { }
 
 
 
@@ -22,9 +29,19 @@ export class CatsService {
     let url = `${this.BaseApiCats}${pag}&category_ids=${categories}`
     return this.http.get<Cats>(url);
   }
+  
+  
+    
+  getFunny(){
+        return this.filters
+      }
+    
+  
+    
+  }
 
 
 
 
   
-}
+

@@ -15,13 +15,18 @@ export class CatsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCategories()
+    this.getFilter()
    }
 
+  
+  getFilter(){
+  /* console.log(this.catService.filters)
+   */
+    
+  }
 
   getCategories(){
-
-    
-   this.catService.getCategory('3','3').subscribe((filter: any) =>{
+   this.catService.getCategory('1','3').subscribe((filter: any) =>{
      Object.values(filter).map((val: any)=>{
          this.cats.push(val.url)
         

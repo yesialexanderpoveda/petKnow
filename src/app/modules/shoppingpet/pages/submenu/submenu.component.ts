@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-
+import { Component, OnInit} from '@angular/core';
+import { FormBuilder, FormGroup, FormArray, FormControl} from '@angular/forms';
+import { CatsService } from '../../services/cats.service';
+import { Checkbox } from '../../models/models.interface';
 @Component({
   selector: 'app-submenu',
   templateUrl: './submenu.component.html',
@@ -7,18 +9,40 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SubmenuComponent implements OnInit {
 
-  @Input() 
+  form!: FormGroup; 
+  
+  constructor(
+    private catsService: CatsService,
+    private fb: FormBuilder
+    ) {}
+  
+  checkboxData: Checkbox[] = this.catsService.filters;
 
-  titlesCats = ["Ropa","Cajas","Sombreros"];
-  tilDogs = [ "Basset","Blood","English"];
-  
-  
-  
-  constructor() { }
+  onChange(name: any, isChecked: boolean){
+   
+    const checkboxes = (this.form.controls.name as FormArray);
+    if(isChecked){
+      checkboxes.push(new FormControl(name))
+    }
+    else{
+     const index = checkboxes.controls.findIndex(x => x.value === name);
+     checkboxes.removeAt(index)
+    }
+  }
+
 
   ngOnInit(): void {
+
+    this.form = this.fb.group({
+       
+      name: this.fb.array([])
+
+    });
   }
- 
+  
+submit(){
+  console.log(this.form.value.name, this.form.value.id)
+}
 
 
 

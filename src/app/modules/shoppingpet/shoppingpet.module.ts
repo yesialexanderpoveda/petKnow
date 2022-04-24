@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialPetModule } from '../material/material.module';
+import { PetRouterModule } from './shoppingpet-routing.module';
+import { FilterPipe } from './pipes/filter.pipe';
 
 import { MenuComponent } from './pages/menu/menu.component';
 import { DogsComponent } from './pages/dogs/dogs.component';
 import { CatsComponent } from './pages/cats/cats.component';
-import { PetRouterModule } from './shoppingpet-routing.module';
 import { SubmenuComponent } from './pages/submenu/submenu.component';
-
+import { FilterComponent } from './pages/filter/filter.component';
 
 
 
@@ -19,11 +19,14 @@ import { SubmenuComponent } from './pages/submenu/submenu.component';
     MenuComponent,
     DogsComponent,
     CatsComponent,
-    SubmenuComponent
+    SubmenuComponent,
+    FilterPipe,
+    FilterComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     PetRouterModule,
     MaterialPetModule
    
