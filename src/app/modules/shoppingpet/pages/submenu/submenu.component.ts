@@ -22,6 +22,8 @@ export class SubmenuComponent implements OnInit {
    
     const checkboxes = (this.form.controls.name as FormArray);
     if(isChecked){
+      console.log(isChecked, name, checkboxes);
+
       checkboxes.push(new FormControl(name))
     }
     else{
