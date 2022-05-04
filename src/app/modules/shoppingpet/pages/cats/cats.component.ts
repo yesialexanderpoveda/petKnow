@@ -24,7 +24,9 @@ export class CatsComponent implements OnInit {
    */
     
   }
-
+  displayCounter(cat: any) {
+    console.log(cat, 'from submenu');
+}
   getCategories(){
    this.catService.getCategory('1','3').subscribe((filter: any) =>{
      Object.values(filter).map((val: any)=>{

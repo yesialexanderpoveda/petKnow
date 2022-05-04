@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl} from '@angular/forms';
 import { CatsService } from '../../services/cats.service';
 import { Checkbox } from '../../models/models.interface';
@@ -16,14 +16,16 @@ export class SubmenuComponent implements OnInit {
     private fb: FormBuilder
     ) {}
   
-  checkboxData: Checkbox[] = this.catsService.filters;
+    @Output() catchield = new EventEmitter();
+    
+    checkboxData: Checkbox[] = this.catsService.filters;
 
   onChange(name: any, isChecked: boolean){
-   
+ 
     const checkboxes = (this.form.controls.name as FormArray);
     if(isChecked){
-      console.log(isChecked, name, checkboxes);
-
+      /* console.log(isChecked, name); */
+      this.catchield.emit(name)
       checkboxes.push(new FormControl(name))
     }
     else{
