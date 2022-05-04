@@ -7,12 +7,12 @@ import { CatsService} from '../../services/cats.service';
 })
 export class CatsComponent implements OnInit {
 
-  titles = ["Ropa","Cajas","Corbata"]
-
+  
   cats: string[] = [];
   message!: string;
   constructor(private catService: CatsService) { }
 
+  catsforsubmenu: any[] = this.catService.filters
   ngOnInit(): void {
     this.getCategories()
     this.getFilter()
@@ -20,11 +20,11 @@ export class CatsComponent implements OnInit {
 
   
   getFilter(){
-  /* console.log(this.catService.filters)
-   */
+   console.log(this.catsforsubmenu, 'submenu of cats');
+   
     
   }
-  displayCounter(cat: any) {
+  changeCat(cat: any) {
     console.log(cat, 'from submenu');
 }
   getCategories(){

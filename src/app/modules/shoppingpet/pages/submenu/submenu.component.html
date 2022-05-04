@@ -1,18 +1,17 @@
 <div class="form">
+
   <h4> <strong>Filtros:</strong></h4>
-<form [formGroup]="form" (ngSubmit)="submit()">
- 
- 
- 
-  <p *ngFor="let check of checkboxData" >
-  
-    <input type="checkbox" (change)="onChange(check?.name, $any($event.target)?.checked)">
-    <strong>{{check.name}}</strong> 
-  
-  </p>
 
+  <form [formGroup]="form" (ngSubmit)="submit()">
 
-</form>
+    <p *ngFor="let check of checkboxData">
+
+      <input type="checkbox" (change)="onChange(check?.name, $any($event.target)?.checked)">
+      
+      <strong>{{check.name}}</strong>
+
+    </p>
+
+  </form>
 
 </div>
-

@@ -1,5 +1,5 @@
-import { Component, OnInit, Output, EventEmitter} from '@angular/core';
-import { FormBuilder, FormGroup, FormArray, FormControl} from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
+import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 import { CatsService } from '../../services/cats.service';
 import { Checkbox } from '../../models/models.interface';
 @Component({
@@ -9,46 +9,50 @@ import { Checkbox } from '../../models/models.interface';
 })
 export class SubmenuComponent implements OnInit {
 
-  form!: FormGroup; 
-  
+  form!: FormGroup;
+
   constructor(
     private catsService: CatsService,
     private fb: FormBuilder
-    ) {}
+  ) { }
+   
   
-    @Output() catchield = new EventEmitter();
-    
-    checkboxData: Checkbox[] = this.catsService.filters;
+  @Output() catchield = new EventEmitter();
+  
+  @Input() catOfcomponent!: any[];
 
-  onChange(name: any, isChecked: boolean){
- 
+  checkboxData: Checkbox[] = this.catsService.filters;
+
+  onChange(name: any, isChecked: boolean) {
+
     const checkboxes = (this.form.controls.name as FormArray);
-    if(isChecked){
+    if (isChecked) {
       /* console.log(isChecked, name); */
       this.catchield.emit(name)
       checkboxes.push(new FormControl(name))
     }
-    else{
-     const index = checkboxes.controls.findIndex(x => x.value === name);
-     checkboxes.removeAt(index)
+    else {
+      const index = checkboxes.controls.findIndex(x => x.value === name);
+      checkboxes.removeAt(index)
     }
   }
 
 
   ngOnInit(): void {
 
+    console.log(this.catOfcomponent, 'data in submenu');
     this.form = this.fb.group({
-       
+
       name: this.fb.array([])
 
     });
   }
-  
-submit(){
-  console.log(this.form.value.name, this.form.value.id)
-}
+
+  submit() {
+    console.log(this.form.value.name, this.form.value.id)
+  }
 
 
 
-  
+
 }
