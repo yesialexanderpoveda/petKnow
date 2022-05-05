@@ -17,9 +17,9 @@ export class SubmenuComponent implements OnInit {
   ) { }
    
   
-  @Output() catchield = new EventEmitter();
+  @Output() petChield = new EventEmitter();
   
-  @Input() catOfcomponent!: any[];
+  @Input() petOfChield!: any[];
 
   checkboxData: Checkbox[] = this.catsService.filters;
 
@@ -28,7 +28,8 @@ export class SubmenuComponent implements OnInit {
     const checkboxes = (this.form.controls.name as FormArray);
     if (isChecked) {
       /* console.log(isChecked, name); */
-      this.catchield.emit(name)
+      // emit event to components 
+      this.petChield.emit(name)
       checkboxes.push(new FormControl(name))
     }
     else {
@@ -40,7 +41,7 @@ export class SubmenuComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log(this.catOfcomponent, 'data in submenu');
+    console.log(this.petOfChield, 'data in submenu');
     this.form = this.fb.group({
 
       name: this.fb.array([])

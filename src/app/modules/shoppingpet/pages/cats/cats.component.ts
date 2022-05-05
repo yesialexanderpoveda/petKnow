@@ -25,7 +25,7 @@ export class CatsComponent implements OnInit {
     
   }
   changeCat(cat: any) {
-    console.log(cat, 'from submenu');
+    console.log(cat, 'from submenu cats');
 }
   getCategories(){
    this.catService.getCategory('1','3').subscribe((filter: any) =>{

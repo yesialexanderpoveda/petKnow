@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { DogsService } from '../../services/dogs.service';
 @Component({
   selector: 'app-dogs',
@@ -18,8 +18,13 @@ export class DogsComponent implements OnInit {
 
   ngOnInit(): void { 
     this.getDogs()
+     console.log(this._dogservice.filter, "I'm dog service");
   }
 
+  changeDogs(dog: any){
+
+    console.log(dog, 'from submenu dog');
+  }
   getDogs(){
 
    if(this.filter == undefined){
