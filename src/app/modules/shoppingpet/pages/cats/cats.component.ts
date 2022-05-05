@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CatsService} from '../../services/cats.service';
+import { CatsService } from '../../services/cats.service';
 @Component({
   selector: 'app-cats',
   templateUrl: './cats.component.html',
@@ -7,36 +7,61 @@ import { CatsService} from '../../services/cats.service';
 })
 export class CatsComponent implements OnInit {
 
-  
+  catsFilter: number = 0;
   cats: string[] = [];
   message!: string;
   constructor(private catService: CatsService) { }
 
   catsforsubmenu: any[] = this.catService.filters
   ngOnInit(): void {
-    this.getCategories()
-    this.getFilter()
-   }
 
-  
-  getFilter(){
-   console.log(this.catsforsubmenu, 'submenu of cats');
-   
+    this.getCategories(this.catsFilter)
     
   }
+
+
+ 
   changeCat(cat: any) {
-    console.log(cat, 'from submenu cats');
-}
-  getCategories(){
-   this.catService.getCategory('1','3').subscribe((filter: any) =>{
-      Object.values(filter).map((val: any)=>{
-         this.cats.push(val.url)
-        
-        })
+
+    if (cat == 0) {
+
+      this.catsFilter = 3
+      this.getCategories(this.catsFilter)
+
+    } else {
+
+      let a = this.catsforsubmenu.filter(name => cat === name.name);
+      this.catsFilter = a[0].id
+      this.getCategories(this.catsFilter);
+
+    }
+    
+  }
+
+  getCategories(cat: any) {
+
+    
+    if (this.catsFilter == 0) {
+
+      this.catsFilter = 3;
+
+    } else {
+
+      this.catsFilter = cat;
       
-   })  
+    }
+
+    this.catService.getCategory('1', this.catsFilter).subscribe((filter: any) => {
+      this.cats = Object.values(filter).map((val: any) => {
+        return val.url
+
+      })
+
+    })
+
+
+  }
+
+
 }
 
-
-
-}

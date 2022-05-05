@@ -14,7 +14,7 @@ export class CatsService {
 
  filters = [
 
-  {id: 3, name: "Feliz"}, 
+  {id: 1, name: "Sombreros"}, 
   {id: 15, name: "Ropa" },
   {id: 5, name: "Boxes"},
   {id: 7, name: "Ties"}
@@ -26,7 +26,7 @@ export class CatsService {
 
 
 
-  getCategory(pag: string, categories: string):Observable<any>{
+  getCategory(pag: string, categories: number):Observable<any>{
     let url = `${this.BaseApiCats}${pag}&category_ids=${categories}`
     return this.http.get<Cats>(url);
   }

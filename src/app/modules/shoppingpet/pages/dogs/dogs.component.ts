@@ -21,7 +21,7 @@ export class DogsComponent implements OnInit {
   ngOnInit(): void {
 
     this.changeDogs(this.filter)
-    console.log(this._dogservice.filter, "I'm dog service");
+
 
   }
 
@@ -45,7 +45,7 @@ export class DogsComponent implements OnInit {
 
     if (dog == undefined) {
 
-      console.log(dog, 'recieve dog');
+     
       this.filter = "ibizan"
 
       await this._dogservice.getBase(this.filter).subscribe((data: any) => {
@@ -57,7 +57,7 @@ export class DogsComponent implements OnInit {
         })
 
         this.pagination = this.dogs.slice(0, 3)
-        console.log(this.dogs.slice(0, 3), this.dogs.length)
+        /* console.log(this.dogs.slice(0, 3), this.dogs.length) */
 
       })
     } else {
@@ -70,7 +70,7 @@ export class DogsComponent implements OnInit {
 
         })
 
-        console.log(this.dogs.slice(0, 3), this.dogs.length)
+        /* console.log(this.dogs.slice(0, 3), this.dogs.length) */
         this.pagination = this.dogs.slice(0, 3)
 
       })
