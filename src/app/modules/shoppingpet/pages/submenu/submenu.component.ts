@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
-import { CatsService } from '../../services/cats.service';
 import { Checkbox } from '../../models/models.interface';
 @Component({
   selector: 'app-submenu',
@@ -12,16 +11,15 @@ export class SubmenuComponent implements OnInit {
   form!: FormGroup;
 
   constructor(
-    private catsService: CatsService,
     private fb: FormBuilder
   ) { }
    
   
   @Output() petChield = new EventEmitter();
   
-  @Input() petOfChield!: any[];
+  @Input() petOfPets!: any[];
 
-  checkboxData: Checkbox[] = this.catsService.filters;
+  checkboxData!: Checkbox[];
 
   onChange(name: any, isChecked: boolean) {
 
@@ -34,6 +32,10 @@ export class SubmenuComponent implements OnInit {
     }
     else {
       const index = checkboxes.controls.findIndex(x => x.value === name);
+      console.log(index, 'hi')
+      if(index == 0){
+         this.petChield.emit(index);
+      }
       checkboxes.removeAt(index)
     }
   }
@@ -41,7 +43,8 @@ export class SubmenuComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log(this.petOfChield, 'data in submenu');
+   (this.petOfPets, 'data in submenu');
+   this.checkboxData = this.petOfPets
     this.form = this.fb.group({
 
       name: this.fb.array([])

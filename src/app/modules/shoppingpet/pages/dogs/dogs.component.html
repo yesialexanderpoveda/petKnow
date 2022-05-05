@@ -1,5 +1,5 @@
 <div class="contAll">
-  <app-submenu (petChield)='changeDogs($event)' ></app-submenu>
+  <app-submenu (petChield)='changeDogs($event)' [petOfPets]='dogsForSubmenu'></app-submenu>
   <div class="dogs">
     <div *ngFor="let dog of pagination">
       <img src={{dog}} alt="">

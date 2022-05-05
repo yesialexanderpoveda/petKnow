@@ -1,6 +1,7 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Cats } from '../models/models.interface';
 
 @Injectable({
@@ -25,7 +26,7 @@ export class CatsService {
 
 
 
-  getCategory(pag: string, categories: string){
+  getCategory(pag: string, categories: string):Observable<any>{
     let url = `${this.BaseApiCats}${pag}&category_ids=${categories}`
     return this.http.get<Cats>(url);
   }

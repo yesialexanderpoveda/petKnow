@@ -29,7 +29,7 @@ export class CatsComponent implements OnInit {
 }
   getCategories(){
    this.catService.getCategory('1','3').subscribe((filter: any) =>{
-     Object.values(filter).map((val: any)=>{
+      Object.values(filter).map((val: any)=>{
          this.cats.push(val.url)
         
         })
