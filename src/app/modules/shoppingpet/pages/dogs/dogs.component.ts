@@ -9,7 +9,7 @@ export class DogsComponent implements OnInit {
 
 
   filter!: string;
-
+  data: number = 0;
   dogs: string[] = [];
 
   pagination: string[] = [];
@@ -22,6 +22,13 @@ export class DogsComponent implements OnInit {
 
     this.changeDogs(this.filter)
 
+
+  }
+
+  filterDogs(ctg: any) {
+
+    this.data = ctg;
+    this.pagination = this.dogs.slice(this.data, this.data + 3)
 
   }
 
@@ -45,7 +52,7 @@ export class DogsComponent implements OnInit {
 
     if (dog == undefined) {
 
-     
+
       this.filter = "ibizan"
 
       await this._dogservice.getBase(this.filter).subscribe((data: any) => {
@@ -56,8 +63,8 @@ export class DogsComponent implements OnInit {
 
         })
 
-        this.pagination = this.dogs.slice(0, 3)
-        /* console.log(this.dogs.slice(0, 3), this.dogs.length) */
+        this.pagination = this.dogs.slice(this.data, this.data + 3)
+
 
       })
     } else {
@@ -70,8 +77,8 @@ export class DogsComponent implements OnInit {
 
         })
 
-        /* console.log(this.dogs.slice(0, 3), this.dogs.length) */
-        this.pagination = this.dogs.slice(0, 3)
+
+        this.pagination = this.dogs.slice(this.data, this.data + 3)
 
       })
 

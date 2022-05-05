@@ -6,7 +6,8 @@ import { CatsService } from '../../services/cats.service';
   styleUrls: ['./cats.component.scss']
 })
 export class CatsComponent implements OnInit {
-
+ 
+  filter_Cats: number = 0;
   catsFilter: number = 0;
   cats: string[] = [];
   message!: string;
@@ -19,8 +20,20 @@ export class CatsComponent implements OnInit {
     
   }
 
+  filterCats(cat: any){
+   
+    this.filter_Cats = cat
+    this.catService.getCategory(this.filter_Cats, this.catsFilter).subscribe((filter: any) => {
+      this.cats = Object.values(filter).map((val: any) => {
+        return val.url
 
- 
+      })
+
+    })
+
+
+    
+  }
   changeCat(cat: any) {
 
     if (cat == 0) {
@@ -48,10 +61,10 @@ export class CatsComponent implements OnInit {
     } else {
 
       this.catsFilter = cat;
-      
+
     }
 
-    this.catService.getCategory('1', this.catsFilter).subscribe((filter: any) => {
+    this.catService.getCategory(this.filter_Cats, this.catsFilter).subscribe((filter: any) => {
       this.cats = Object.values(filter).map((val: any) => {
         return val.url
 

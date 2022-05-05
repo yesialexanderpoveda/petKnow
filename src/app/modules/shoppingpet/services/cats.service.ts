@@ -26,7 +26,7 @@ export class CatsService {
 
 
 
-  getCategory(pag: string, categories: number):Observable<any>{
+  getCategory(pag: number, categories: number):Observable<any>{
     let url = `${this.BaseApiCats}${pag}&category_ids=${categories}`
     return this.http.get<Cats>(url);
   }
