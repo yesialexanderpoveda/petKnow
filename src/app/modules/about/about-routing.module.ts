@@ -12,6 +12,10 @@ const routes: Routes = [
 
   children: [
 
+     {
+       path: '',
+       component: FundationsComponent
+     },
     {
       path: 'fundations',
       component: FundationsComponent
