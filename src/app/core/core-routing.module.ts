@@ -23,8 +23,8 @@ const routes: Routes = [
     loadChildren: () => import('../modules/shoppingpet/shoppingpet.module').then(m=> m.ShoppingpetModule)
   },
   {
-    path: 'cart',
-    loadChildren: () => import('../modules/cart/cart.module').then(m => m.CartModule) 
+    path: 'car',
+    loadChildren: () => import('../modules/car/car.module').then(m => m.CartModule) 
     
   },
   {

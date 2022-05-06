@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
     isOpen = false;
 
     toggle(){
+      
       this.isOpen = !this.isOpen;
       
     }

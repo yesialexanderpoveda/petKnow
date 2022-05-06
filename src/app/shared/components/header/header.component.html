@@ -4,9 +4,9 @@
     <ul>
       <li [routerLink]="['home']"><b>PetKnow</b></li>
       <li [routerLink]="['pets']"> Mascotas</li>
-      <li>Sobre nosotros</li>
+      <li [routerLink]="['about']">Sobre nosotros</li>
       <li>
-        <mat-icon aria-hidden="false" aria-label="Example home icon">local_shipping</mat-icon>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" [routerLink]="['car']">local_shipping</mat-icon>
         +{{0}}
       </li>
     </ul>
@@ -17,9 +17,9 @@
   <div class="menu" *ngIf="isOpen" [@dropDownMenu]>
     <div class="menu-item">
       <ul>
-        <li class="list">Sobre nosotros</li>
-        <li class="list">Tiendas</li>
-        <li class="list">Fundaciones o hogares de paso</li>
+        <li class="list" routerLink="about">Sobre nosotros</li>
+        <li class="list" routerLink="about/stores">Tiendas</li>
+        <li class="list" routerLink="about/fundations">Fundaciones o hogares de paso</li>
       </ul>
     </div>
   </div>

@@ -1,0 +1,20 @@
+.container{
+  position: relative;
+  top: 20px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  div{
+     padding: 10px;
+     border-bottom: 1px solid black;
+     margin: 3px;
+    img{
+      width:  200px;
+    }
+    p{
+      a{
+        text-decoration: none;
+        list-style: none;
+      }
+    }
+  }
+}
