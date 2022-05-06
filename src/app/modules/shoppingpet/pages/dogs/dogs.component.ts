@@ -10,9 +10,9 @@ export class DogsComponent implements OnInit {
 
   filter!: string;
   data: number = 0;
-  dogs: string[] = [];
+  dogs!: any[];
 
-  pagination: string[] = [];
+  pagination: any[] = [];
 
   constructor(private _dogservice: DogsService) { }
 
@@ -48,35 +48,34 @@ export class DogsComponent implements OnInit {
 
   }
 
-  async getDogs(dog: any) {
+  getDogs(dog: any) {
 
     if (dog == undefined) {
 
 
-      this.filter = "ibizan"
-
-      await this._dogservice.getBase(this.filter).subscribe((data: any) => {
-
-        data.message.map((dta: any) => {
-
-          this.dogs.push(dta)
-
-        })
-
-        this.pagination = this.dogs.slice(this.data, this.data + 3)
-
-
-      })
-    } else {
-
-      await this._dogservice.getBase(this.filter).subscribe((data: any) => {
+       this.filter = "ibizan"
+   
+       this._dogservice.getBase(this.filter).subscribe((data: any) => {
 
         this.dogs = data.message.map((dta: any) => {
 
-          return dta;
+          return ({img: `${dta}`, name: `${this.filter}`});
 
         })
+        /* console.log(this.dogs[0].img) */
+        this.pagination = this.dogs.slice(this.data, this.data + 3)
+        
+        
+      })
+    } else {
 
+     this._dogservice.getBase(this.filter).subscribe((data: any) => {
+
+        this.dogs = data.message.map((dta: any) => {
+
+          return ({img: `${dta}`, name: `${this.filter}`});
+
+        })
 
         this.pagination = this.dogs.slice(this.data, this.data + 3)
 

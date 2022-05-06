@@ -9,7 +9,7 @@ export class CatsComponent implements OnInit {
  
   filter_Cats: number = 0;
   catsFilter: number = 0;
-  cats: string[] = [];
+  cats: any[] = [];
   message!: string;
   constructor(private catService: CatsService) { }
 
@@ -25,10 +25,10 @@ export class CatsComponent implements OnInit {
     this.filter_Cats = cat
     this.catService.getCategory(this.filter_Cats, this.catsFilter).subscribe((filter: any) => {
       this.cats = Object.values(filter).map((val: any) => {
-        return val.url
-
+        return ({id: `${val.id}`, url: `${val.url}`})
       })
-
+ 
+      
     })
 
 
@@ -40,6 +40,7 @@ export class CatsComponent implements OnInit {
 
       this.catsFilter = 3
       this.getCategories(this.catsFilter)
+      
 
     } else {
 
@@ -66,13 +67,14 @@ export class CatsComponent implements OnInit {
 
     this.catService.getCategory(this.filter_Cats, this.catsFilter).subscribe((filter: any) => {
       this.cats = Object.values(filter).map((val: any) => {
-        return val.url
+        return ({id: `${val.id}`, url: `${val.url}`})
 
       })
-
+     
     })
 
-
+    
+    
   }
 
 

@@ -2,7 +2,8 @@
   <app-submenu (petChield)='changeDogs($event)' [petOfPets]='dogsForSubmenu'></app-submenu>
   <div class="dogs">
     <div *ngFor="let dog of pagination">
-      <img src={{dog}} alt="">
+      <img src={{dog.img}} alt="">
+      <p> Raza: {{dog.name}}</p>
       <div>
         <button>Llevar</button>
       </div>

@@ -8,7 +8,8 @@
     <div class="contL" *ngFor="let cat of cats">
 
 
-      <img src={{cat}} alt="">
+      <img src={{cat.url}} alt="">
+      <p>ID: {{cat.id}}</p>
       <div>
         <button class="btCat">Llevar</button>
       </div>
