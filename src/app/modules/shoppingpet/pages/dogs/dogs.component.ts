@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DogsService } from '../../services/dogs.service';
+import { Store } from '@ngrx/store';
+import { petShop } from 'src/app/ngrx/actions/car.actions';
 @Component({
   selector: 'app-dogs',
   templateUrl: './dogs.component.html',
@@ -14,14 +16,18 @@ export class DogsComponent implements OnInit {
 
   pagination: any[] = [];
 
-  constructor(private _dogservice: DogsService) { }
+  constructor(
+    private _dogservice: DogsService,
+    private _store: Store<any>
+    ) { }
 
   dogsForSubmenu = this._dogservice.filter
 
   ngOnInit(): void {
-
+    
+   
     this.changeDogs(this.filter)
-
+    this._store.dispatch(petShop())
 
   }
 

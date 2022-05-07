@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { APP_REDUCERS } from './ngrx/app.state';
 
 
 
@@ -22,8 +23,8 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {}),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }) // storeModule jiji
+    StoreModule.forRoot(APP_REDUCERS), //esto es un gran objeto de json
+    StoreDevtoolsModule.instrument({name: 'TEST'}) // storeModule jiji
   ],
   providers: [],
   bootstrap: [AppComponent]

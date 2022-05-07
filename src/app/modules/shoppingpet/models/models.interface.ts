@@ -17,3 +17,11 @@ export interface Checkbox{
   name?: string;
   
  }
+
+export interface Shopping {
+  
+  id: string;
+  img: string; 
+
+}
+
