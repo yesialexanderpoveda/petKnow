@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DogsService } from '../../services/dogs.service';
 import { Store } from '@ngrx/store';
 import { petShop } from 'src/app/ngrx/actions/car.actions';
+import { Observable } from 'rxjs';
+import { selectLoading } from 'src/app/ngrx/selectors/car.selector';
 @Component({
   selector: 'app-dogs',
   templateUrl: './dogs.component.html',
@@ -9,7 +11,7 @@ import { petShop } from 'src/app/ngrx/actions/car.actions';
 })
 export class DogsComponent implements OnInit {
 
-
+  loading$: Observable<Boolean> = new Observable()
   filter!: string;
   data: number = 0;
   dogs!: any[];
@@ -25,7 +27,8 @@ export class DogsComponent implements OnInit {
 
   ngOnInit(): void {
     
-   
+   this.loading$ =  this._store.select(selectLoading)
+
     this.changeDogs(this.filter)
     this._store.dispatch(petShop())
 
