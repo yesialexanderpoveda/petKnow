@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CatsService } from '../../services/cats.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-cats',
   templateUrl: './cats.component.html',
@@ -20,7 +21,38 @@ export class CatsComponent implements OnInit {
     
   }
 
+  
+  // SAVE OF STORAGE 
+  
+  rec(event: any){
 
+    if (event.target.innerHTML === "Llevar"){
+      
+      Swal.fire({
+        title: '¿Quieres llevar esta mascota?',
+        text: "",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'No'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          
+          console.log(event.path[2].__ngContext__[27], event.path[2].__ngContext__[22].textContent)
+          
+          Swal.fire(
+            'Estas a un paso de tener tu mascota!',
+            'Tus pedidos estan en el paquete de regalos',
+            'success'
+          )
+        }
+      })
+     
+    }
+   
+  }
 
   // HTTP OF THE API 
   

@@ -1,21 +1,18 @@
-import { Component, OnInit, ViewChild, ViewChildren, Renderer2, ElementRef, AfterViewInit, QueryList } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DogsService } from '../../services/dogs.service';
 import { Store } from '@ngrx/store';
 import { petShop } from 'src/app/ngrx/actions/car.actions';
 import { Observable } from 'rxjs';
 import { selectLoading } from 'src/app/ngrx/selectors/car.selector';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-dogs',
   templateUrl: './dogs.component.html',
   styleUrls: ['./dogs.component.scss']
 })
-export class DogsComponent implements OnInit, AfterViewInit {
+export class DogsComponent implements OnInit {
 
-   //FOR SAVE STORAGE 
-  @ViewChildren('btn') BTN!: ElementRef[];
-  
-   /* @ViewChildren('btn') btn = {} as QueryList<ElementRef> */
+
    // VARIABLE FOR THE STORAGE 
   loading$: Observable<Boolean> = new Observable()
   
@@ -28,8 +25,7 @@ export class DogsComponent implements OnInit, AfterViewInit {
 
   constructor(
     private _dogservice: DogsService,
-    private _store: Store<any>,
-    private reder: Renderer2
+    private _store: Store<any>
     ) { }
 
   dogsForSubmenu = this._dogservice.filter
@@ -43,10 +39,7 @@ export class DogsComponent implements OnInit, AfterViewInit {
 
     
   }
-  ngAfterViewInit(): void {
 
-   
-  }
 
 
   // SAVE OF STORAGE 
@@ -55,7 +48,28 @@ export class DogsComponent implements OnInit, AfterViewInit {
 
     if (event.target.innerHTML === "Llevar"){
       
-      console.log(event.path[2].__ngContext__[27], event.path[2].__ngContext__[22].textContent)
+      Swal.fire({
+        title: '¿Quieres llevar esta mascota?',
+        text: "",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'No'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          
+          console.log(event.path[2].__ngContext__[27], event.path[2].__ngContext__[22].textContent)
+          
+          Swal.fire(
+            'Estas a un paso de tener tu mascota!',
+            'Tus pedidos estan en el paquete de regalos',
+            'success'
+          )
+        }
+      })
+     
     }
    
   }

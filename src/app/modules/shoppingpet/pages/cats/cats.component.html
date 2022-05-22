@@ -5,7 +5,7 @@
   <div class="cont">
 
 
-    <div class="contL" *ngFor="let cat of cats">
+    <div class="contL" *ngFor="let cat of cats"  (click)="rec($event)">
 
 
       <img src={{cat.url}} alt="">
