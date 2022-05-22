@@ -17,9 +17,9 @@
   <div class="menu" *ngIf="isOpen" [@dropDownMenu]>
     <div class="menu-item">
       <ul>
-        <li class="list" routerLink="about">Sobre nosotros</li>
-        <li class="list" routerLink="about/stores">Tiendas</li>
-        <li class="list" routerLink="about/fundations">Fundaciones o hogares de paso</li>
+        <li class="list" routerLink="about" (click)="isOpen = !isOpen">Sobre nosotros</li>
+        <li class="list" routerLink="about/stores" (click)="isOpen = !isOpen">Tiendas</li>
+        <li class="list" routerLink="about/fundations" (click)="isOpen = !isOpen">Fundaciones o hogares de paso</li>
       </ul>
     </div>
   </div>
