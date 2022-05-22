@@ -7,7 +7,7 @@ import { Component, OnInit, ViewChild, Renderer2, ElementRef, AfterViewInit, Out
 })
 export class FilterComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('sum') sum!: ElementRef; 
+  @ViewChild('sum', {static: false}) sum!: ElementRef; 
   @ViewChild('subt') subt!: ElementRef;
   constructor(private render: Renderer2 ) { }
 

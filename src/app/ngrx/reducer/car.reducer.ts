@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { Shopping } from 'src/app/modules/shoppingpet/models/models.interface';
-import { petShop } from '../actions/car.actions';
+import { petShop, petShoped } from '../actions/car.actions';
 
 
 
@@ -25,3 +25,5 @@ export const petsReducer = createReducer(
     return {...state, loading: true}
 
   }));
+
+  

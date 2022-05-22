@@ -1,10 +1,10 @@
 <div class="contAll">
-  <span>cargando... {{loading$ | async | json}}</span>
+  <span >cargando... {{loading$ | async | json}}</span>
   <app-submenu (petChield)='changeDogs($event)' [petOfPets]='dogsForSubmenu'></app-submenu>
-  <div class="dogs">
-    <div *ngFor="let dog of pagination">
+  <div  class="dogs" #btn  >
+    <div *ngFor="let dog of pagination"   (click)="rec($event)">
       <img src={{dog.img}} alt="">
-      <p> Raza: {{dog.name}}</p>
+      <p> {{dog.name}}</p>
       <div>
         <button>Llevar</button>
       </div>

@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
 import { APP_REDUCERS } from './ngrx/app.state';
 
 
@@ -23,8 +22,8 @@ import { APP_REDUCERS } from './ngrx/app.state';
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    StoreModule.forRoot(APP_REDUCERS), //esto es un gran objeto de json
-    StoreDevtoolsModule.instrument({name: 'TEST'}) // storeModule jiji
+    StoreModule.forRoot(APP_REDUCERS), 
+    StoreDevtoolsModule.instrument({name: 'TEST'}) 
   ],
   providers: [],
   bootstrap: [AppComponent]

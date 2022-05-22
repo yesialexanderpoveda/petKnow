@@ -20,6 +20,10 @@ export class CatsComponent implements OnInit {
     
   }
 
+
+
+  // HTTP OF THE API 
+  
   filterCats(cat: any){
    
     this.filter_Cats = cat
