@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, EventEmitter} from '@angular/core';
 import { MenuAnimation} from './animatios';
-import { setNgrxMockEnvironment, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/ngrx/app.state';
 import { Observable } from 'rxjs';
 import { selectFeaturelistPets } from 'src/app/ngrx/selectors/car.selector';
@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   pt_store$: Observable<any> = new Observable()
   
    // For cart 
-  send = new EventEmitter() 
+  
   
    cart!: any[]; 
    cont!: any;

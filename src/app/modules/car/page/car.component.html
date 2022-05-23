@@ -1,2 +1,7 @@
-<p>car works!</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, amet quibusdam, necessitatibus cum fugit doloremque enim, ipsa in excepturi facere officia impedit dignissimos quae sunt nihil esse repudiandae debitis sint!</p>
+<div class="container">
+<span *ngIf="store().length == 0">No ha elegido ninguna mascota</span>
+<div  class="pets" *ngFor="let pet of store()">
+     <img src={{pet.img}} />
+     <p >Detalle: {{pet.id}} <strong>recuerda dar 💝 a tu mascota</strong></p>
+</div>
+</div>

@@ -78,7 +78,7 @@ export class CatsComponent implements OnInit {
           }
 
 
-          console.log(this.pet_storage)
+          
           // ** send data **
           this._store.dispatch(petShoped({
 
