@@ -36,6 +36,7 @@ export class DogsComponent implements OnInit {
   ngOnInit(): void {
     
     // loaging data 
+    
    this.loading$ =  this._store.select(selectLoading)
     this.changeDogs(this.filter)
     this.store()
