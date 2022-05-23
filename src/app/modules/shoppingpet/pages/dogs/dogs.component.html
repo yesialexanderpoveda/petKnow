@@ -1,5 +1,5 @@
 <div class="contAll">
-  <span >cargando... {{loading$ | async | json}}</span>
+  
   <app-submenu (petChield)='changeDogs($event)' [petOfPets]='dogsForSubmenu'></app-submenu>
   <div  class="dogs" >
     <div *ngFor="let dog of pagination"   (click)="rec($event)">
@@ -7,6 +7,7 @@
       <p> {{dog.name}}</p>
       <div>
         <button>Llevar</button>
+       <!--  <span >cargando... {{loading$ | async | json}}</span> -->
       </div>
     </div>
   </div>

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { DogsService } from '../../services/dogs.service';
 import { Store } from '@ngrx/store';
-import { petShop } from 'src/app/ngrx/actions/car.actions';
+import { petShop, petShoped } from 'src/app/ngrx/actions/car.actions';
 import { Observable } from 'rxjs';
-import { selectLoading } from 'src/app/ngrx/selectors/car.selector';
+import { selectLoading, selectFeaturelistPets} from 'src/app/ngrx/selectors/car.selector';
 import Swal from 'sweetalert2';
+import { AppState } from 'src/app/ngrx/app.state';
 @Component({
   selector: 'app-dogs',
   templateUrl: './dogs.component.html',
@@ -15,7 +16,8 @@ export class DogsComponent implements OnInit {
 
    // VARIABLE FOR THE STORAGE 
   loading$: Observable<Boolean> = new Observable()
-  
+  pt_storage$: Observable<any> = new Observable()
+  pet_storage!: any[]
   // VARIABLES FOR THE API
   filter!: string;
   data: number = 0;
@@ -25,17 +27,19 @@ export class DogsComponent implements OnInit {
 
   constructor(
     private _dogservice: DogsService,
-    private _store: Store<any>
+    private _store: Store<any>,
+    private  _Store: Store<AppState>
     ) { }
 
   dogsForSubmenu = this._dogservice.filter
 
   ngOnInit(): void {
     
+    // loaging data 
    this.loading$ =  this._store.select(selectLoading)
-
     this.changeDogs(this.filter)
-    this._store.dispatch(petShop())
+    this.store()
+    
 
     
   }
@@ -44,10 +48,13 @@ export class DogsComponent implements OnInit {
 
   // SAVE OF STORAGE 
   
-  rec(event: any){
+ async rec(event: any){
 
-    if (event.target.innerHTML === "Llevar"){
-      
+    if (event.composedPath()[0].textContent === "Llevar"){
+     /*  console.log(event.composedPath()[2].firstChild.src, event.composedPath()[2].children[1].textContent) */
+      let id = event.composedPath()[2].children[1].textContent;
+      let img = event.composedPath()[2].firstChild.src;
+      this._store.dispatch(petShop())
       Swal.fire({
         title: '¿Quieres llevar esta mascota?',
         text: "",
@@ -59,9 +66,41 @@ export class DogsComponent implements OnInit {
         cancelButtonText: 'No'
       }).then((result) => {
         if (result.isConfirmed) {
+          const pet_s = []; 
+      
+          if(event.composedPath()){
           
-          console.log(event.path[2].__ngContext__[27], event.path[2].__ngContext__[22].textContent)
-          
+            console.log(id, img)
+            pet_s.push({ id: `${id}`, img: `${img}`}) 
+            
+          }
+           
+           
+           if(this.pet_storage == undefined){
+            console.log('gato') 
+            this.pet_storage = pet_s 
+             
+           }else{
+            
+           
+            
+            this.pet_storage.push({
+              
+              id: `${id}`,  
+              img: `${img}`
+              
+              })
+           }
+           
+           
+            console.log(this.pet_storage) 
+           // send data 
+          this._store.dispatch(petShoped({
+
+             pets: this.pet_storage
+            
+          }
+          ))
           Swal.fire(
             'Estas a un paso de tener tu mascota!',
             'Tus pedidos estan en el paquete de regalos',
@@ -74,6 +113,27 @@ export class DogsComponent implements OnInit {
    
   }
 
+
+  
+  // 
+  async store(){
+    
+    this.pt_storage$ = await this._Store.select(selectFeaturelistPets);
+           /*  console.log(this.pt_storage$, 'storage')  */
+            
+           
+            this.pt_storage$.forEach(ele =>{
+              console.log(ele.length)
+          if(ele.length != 0){
+            this.pet_storage = ele
+          }
+              
+              
+            })
+              
+            
+            }
+          
   
 
   // HTTP OF API 

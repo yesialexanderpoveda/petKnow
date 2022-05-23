@@ -1,3 +1,4 @@
+import { state } from '@angular/animations';
 import { createReducer, on } from '@ngrx/store';
 import { Shopping } from 'src/app/modules/shoppingpet/models/models.interface';
 import { petShop, petShoped } from '../actions/car.actions';
@@ -24,6 +25,12 @@ export const petsReducer = createReducer(
 
     return {...state, loading: true}
 
-  }));
+  }),
+  
+  on(petShoped, (state, {pets}) =>{
+  
+    return { ... state, loading: false, pets }
+  })
+  );
 
   
